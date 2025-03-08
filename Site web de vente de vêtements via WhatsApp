@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RomaShoping - Boutique de Vêtements</title>
+    <style>
+        /* Styles CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .produits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .produit {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .produit img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #128C7E;
+        }
+
+        .paiement {
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .paiement ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .paiement ul li {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer a {
+            color: #25D366;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RomaShoping</h1>
+        <p>Mode tendance pour tous les goûts</p>
+    </header>
+
+    <section class="produits">
+        <div class="produit">
+            <img src="images/IMG-20250305-WA0014.jpg" alt="ESSENTIALS">
+            <h2>ESSENTIALS</h2>
+            <p>Collection ESSENTIALS - Confort et style.</p>
+            <button onclick="contactWhatsApp('ESSENTIALS')">Demander le prix</button>
+        </div>
+
+        <div class="produit">
+            <img src="images/IMG-20250305-WA0012.jpg" alt="BLACK DIAMOND">
+            <h2>BLACK DIAMOND</h2>
+            <p>Collection BLACK DIAMOND - Élégance et sophistication.</p>
+            <button onclick="contactWhatsApp('BLACK DIAMOND')">Demander le prix</button>
+        </div>
+    </section>
+
+    <section class="paiement">
+        <h2>Méthodes de Paiement</h2>
+        <p>Nous acceptons les paiements via :</p>
+        <ul>
+            <li>MTN Mobile Money</li>
+            <li>Orange Money</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Contactez-nous sur WhatsApp pour plus d'informations : <a href="https://wa.me/237657918314" target="_blank">+237 6 57 91 83 14</a></p>
+    </footer>
+
+    <script>
+        // JavaScript
+        function contactWhatsApp(produit) {
+            const message = `Bonjour, je suis intéressé par le produit "${produit}" chez RomaShoping. Pouvez-vous me donner plus d'informations et le prix ?`;
+            const numeroWhatsApp = "237657918314"; // Votre numéro de WhatsApp
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Animation au survol des produits
+        const produits = document.querySelectorAll('.produit');
+
+        produits.forEach(produit => {
+            produit.addEventListener('mouseover', () => {
+                produit.style.transform = 'scale(1.05)';
+                produit.style.transition = 'transform 0.3s ease';
+            });
+
+            produit.addEventListener('mouseout', () => {
+                produit.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animation du bouton WhatsApp
+        const boutonsWhatsApp = document.querySelectorAll('button');
+
+        boutonsWhatsApp.forEach(bouton => {
+            bouton.addEventListener('mouseover', () => {
+                bouton.style.backgroundColor = '#128C7E';
+                bouton.style.transform = 'translateY(-5px)';
+                bouton.style.transition = 'all 0.3s ease';
+            });
+
+            bouton.addEventListener('mouseout', () => {
+                bouton.style.backgroundColor = '#25D366';
+                bouton.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
